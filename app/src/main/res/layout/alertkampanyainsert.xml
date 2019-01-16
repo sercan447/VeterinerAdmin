@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:text="bu ekrandan yeni kampanya oluşturabilirsiniz."/>
+        
+    <EditText
+        android:id="@+id/ed_kampanyaBaslik"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Kampanya başlığı giriniz."
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittextbackground" />
+
+
+    <EditText
+        android:id="@+id/ed_kampanyaIcerik"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Kampanya İçeriği giriniz."
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittextbackground" />
+
+
+    <ImageView
+        android:id="@+id/img_kampanyaResim"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_kampanyaEkle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#fff"
+            android:background="#10102c"
+            android:text="Kampanya Ekle"/>
+
+        <Button
+            android:id="@+id/btn_kampanyaresimEkle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:background="#10102c"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Resim Ekle"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

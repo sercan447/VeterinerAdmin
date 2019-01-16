@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardviewKampanya"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#eaeaea"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_asiTakipBaslik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#978543"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center"
+                android:id="@+id/img_asiTakip"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <TextView
+                android:id="@+id/tv_asiTakipBilgiText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000a51"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_asitakipButn"
+                    android:text="Aşı Yapıldı"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:background="#36a468"
+                    android:textColor="#fff"
+                    android:layout_weight="1" />
+                <Button
+                    android:id="@+id/btn_asiTakipCancel"
+                    android:text="Yapılmadı"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:background="#b7382a"
+                    android:textColor="#fff"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/btn_asiTakipAra"
+                    android:text="Ara"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:background="#afa531"
+                    android:textColor="#fff"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
