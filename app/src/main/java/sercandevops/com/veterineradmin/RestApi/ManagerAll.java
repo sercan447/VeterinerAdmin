@@ -9,6 +9,7 @@ import sercandevops.com.veterineradmin.Model.KampanyaEkleModel;
 import sercandevops.com.veterineradmin.Model.KampanyaModel;
 import sercandevops.com.veterineradmin.Model.KampanyaSilModel;
 import sercandevops.com.veterineradmin.Model.PetAsiTakipModel;
+import sercandevops.com.veterineradmin.Model.SoruModel;
 
 public class ManagerAll extends BaseManager {
 
@@ -62,5 +63,11 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
+    public  Call<List<SoruModel>> getSorular()
+    {
+        Call<List<SoruModel>> x = getRestApi().getSorular();
+
+        return x;
+    }
 
 }

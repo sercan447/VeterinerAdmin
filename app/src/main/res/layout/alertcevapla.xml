@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cevabı alt kutucuğa yazabilirsiniz."
+            android:textColor="#fb4040"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:gravity="center"/>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/ed_soruCevap"
+                android:layout_width="match_parent"
+                android:background="@drawable/edittextbackground"
+                android:layout_height="wrap_content"
+                android:hint="Mail adresi giriniz.."/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/btn_soruCevap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Cevapla"
+        style="@style/Widget.AppCompat.Button.Colored"/>
+</LinearLayout>

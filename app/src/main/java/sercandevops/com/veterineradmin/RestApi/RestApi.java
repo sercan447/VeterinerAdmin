@@ -13,6 +13,7 @@ import sercandevops.com.veterineradmin.Model.KampanyaEkleModel;
 import sercandevops.com.veterineradmin.Model.KampanyaModel;
 import sercandevops.com.veterineradmin.Model.KampanyaSilModel;
 import sercandevops.com.veterineradmin.Model.PetAsiTakipModel;
+import sercandevops.com.veterineradmin.Model.SoruModel;
 
 
 public interface RestApi {
@@ -41,4 +42,10 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/veterinerapp/asiptal.php")
     Call<AsiOnaylaModel> asiIptal(@Field("id")String petasiid);
+
+
+    @GET("/veterinerapp/sorular.php")
+    Call<List<SoruModel>> getSorular();
+
+    
 }
