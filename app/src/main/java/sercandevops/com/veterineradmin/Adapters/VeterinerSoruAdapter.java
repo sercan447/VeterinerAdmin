@@ -26,6 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import sercandevops.com.veterineradmin.Model.AsiOnaylaModel;
+import sercandevops.com.veterineradmin.Model.CevaplaModel;
 import sercandevops.com.veterineradmin.Model.PetAsiTakipModel;
 import sercandevops.com.veterineradmin.Model.SoruModel;
 import sercandevops.com.veterineradmin.R;
@@ -39,6 +40,7 @@ public class VeterinerSoruAdapter extends RecyclerView.Adapter<VeterinerSoruAdap
     List<SoruModel> soruModelList;
     Activity activity;
     View  v;
+
 
     public VeterinerSoruAdapter(Context context, List<SoruModel> soruModelList, Activity activity) {
         this.context = context;
@@ -61,10 +63,11 @@ public class VeterinerSoruAdapter extends RecyclerView.Adapter<VeterinerSoruAdap
         myViewHolder.tv_soruyazanKisi.setText(soruModelList.get(i).getKadi());
         myViewHolder.tv_soruIcerik.setText(soruModelList.get(i).getSoru());
 
+
         myViewHolder.btn_soruCevapla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialogSoruCEVAPLA();
+                AlertDialogSoruCEVAPLA(soruModelList.get(i).getMusid(),soruModelList.get(i).getSoruId(),soruModelList.get(i).getSoru());
             }
         });
 
@@ -97,14 +100,16 @@ public class VeterinerSoruAdapter extends RecyclerView.Adapter<VeterinerSoruAdap
     }
 
 
-    public void AlertDialogSoruCEVAPLA()
+    public void AlertDialogSoruCEVAPLA(final String musid, final String soruid,String soru)
     {
         LayoutInflater layoutInflater = activity.getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.alertcevapla,null);
 
         final EditText ed_soruCevap = view.findViewById(R.id.ed_soruCevap);
         MaterialButton btn_soruCevap = view.findViewById(R.id.btn_soruCevap);
+        TextView tv_soruMetni = view.findViewById(R.id.tv_soruMetni);
 
+        tv_soruMetni.setText(soru);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(view);
@@ -116,7 +121,7 @@ public class VeterinerSoruAdapter extends RecyclerView.Adapter<VeterinerSoruAdap
             @Override
             public void onClick(View v) {
                 String cevapText = ed_soruCevap.getText().toString();
-                SoruCevapla(cevapText,"",alertDialog);
+                SoruCevapla(musid,cevapText,soruid,alertDialog);
             }
         });
 
@@ -124,9 +129,30 @@ public class VeterinerSoruAdapter extends RecyclerView.Adapter<VeterinerSoruAdap
 
     }//FUNC
 
-    public void SoruCevapla(String cevapText,String soruId,AlertDialog alertDialog)
+    public void SoruCevapla(String musid, String soruId, String cevapText, final AlertDialog alertDialog)
     {
 
+        Call<CevaplaModel> req = ManagerAll.getInstance().soruCevapla(musid,cevapText,soruId);
+        req.enqueue(new Callback<CevaplaModel>() {
+            @Override
+            public void onResponse(Call<CevaplaModel> call, Response<CevaplaModel> response) {
+                if (response.body().isTf())
+                {
+                    Log.i("CEVAPLANDI",response.body().toString());
+                    alertDialog.cancel();
+                }else
+                {
+                    Log.i("CEVAPLANDI","PROBLEM");
+                    alertDialog.cancel();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CevaplaModel> call, Throwable t) {
+                Log.i("CEVAPLANDI",t.toString());
+                alertDialog.cancel();
+            }
+        });
 
 
     }//FUNC
@@ -140,6 +166,7 @@ public class VeterinerSoruAdapter extends RecyclerView.Adapter<VeterinerSoruAdap
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
 
             tv_soruyazanKisi = itemView.findViewById(R.id.tv_soruyazanKisi);
             tv_soruIcerik = itemView.findViewById(R.id.tv_soruIcerik);

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.KullaniciPetFragment">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/userPetlistRecView"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:id="@+id/img_petEkleResimYok"
+        android:visibility="gone"
+        android:background="#456"/>
+
+
+    <TextView
+        android:id="@+id/tv_bilgiUyari"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textSize="20dp"
+        android:textColor="#b62a25"
+        android:gravity="center"
+        android:layout_below="@id/img_petEkleResimYok"
+        android:text="Bu kullanıcıa pet yoktur.Pet ekle butonundan pet ekleyebilirsiniz."/>
+
+        <Button
+            android:id="@+id/btnPetlerInPetEkle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PET EKLE"
+            android:layout_margin="5dp"
+            android:layout_alignParentBottom="true"/>
+
+
+
+
+
+</RelativeLayout>

@@ -21,4 +21,13 @@ public class CevaplaModel {
     public void setTf(boolean tf) {
         this.tf = tf;
     }
+
+
+    @Override
+    public String toString() {
+        return "CevaplaModel{" +
+                "text='" + text + '\'' +
+                ", tf=" + tf +
+                '}';
+    }
 }

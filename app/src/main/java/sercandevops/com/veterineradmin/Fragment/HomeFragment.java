@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
 
 
     private View v;
-    private LinearLayout kampanyaLayout,asiTakipLayout,linearlayout_Sorular;
+    private LinearLayout kampanyaLayout,asiTakipLayout,linearlayout_Sorular,linearKullanicilar;
     private ChangeFragments changeFragments;
 
     @Override
@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
         changeFragments = new ChangeFragments(getContext());
         asiTakipLayout = v.findViewById(R.id.linearlayout_askitakip);
         linearlayout_Sorular = v.findViewById(R.id.linearlayout_Sorular);
+        linearKullanicilar = v.findViewById(R.id.linearKullanicilar);
 
 
     }
@@ -68,6 +69,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 changeFragments.change(new SorularFragment());
+            }
+        });
+        linearKullanicilar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeFragments.change(new KullaniciFragment());
             }
         });
     }
