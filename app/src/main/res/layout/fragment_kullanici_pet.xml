@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:id="@+id/img_petEkleResimYok"
-        android:visibility="gone"
+        android:visibility="visible"
         android:background="#456"/>
 
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
-        android:visibility="gone"
+        android:visibility="visible"
         android:textSize="20dp"
         android:textColor="#b62a25"
         android:gravity="center"

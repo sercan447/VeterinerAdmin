@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class SorularFragment extends Fragment {
     List<SoruModel> list;
     private VeterinerSoruAdapter veterinerSoruAdapter;
     ChangeFragments changeFragments;
+    ImageView imgSoruBack;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class SorularFragment extends Fragment {
 
         tanimlama();
         istekAt();
-
+        TiklamaDurumlari();
 
         return v;
     }
@@ -48,9 +50,20 @@ public class SorularFragment extends Fragment {
         recyclerView_Sorular = (RecyclerView)v.findViewById(R.id.recylerview_Sorular);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),1);
         recyclerView_Sorular.setLayoutManager(layoutManager);
+        imgSoruBack = v.findViewById(R.id.imgSoruBack);
 
         changeFragments = new ChangeFragments(getContext());
         list = new ArrayList<>();
+    }
+
+    public void TiklamaDurumlari()
+    {
+        imgSoruBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeFragments.changeParameters(new HomeFragment(),"hoemsoruTAG");
+            }
+        });
     }
 
     public void istekAt()

@@ -26,7 +26,7 @@
                 android:id="@+id/img_kullaniciImage1"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:background="@android:drawable/btn_star"
+                android:background="@android:drawable/btn_minus"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"/>
 
@@ -38,16 +38,16 @@
                         android:id="@+id/btnPetEkle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#617afe"
+                        android:background="#938"
                         android:text="PETLER"
-                        android:textColor="#fff"
+                        android:textColor="#234562"
                         android:layout_margin="5dp"
                         android:layout_weight="1"/>
                 <Button
                     android:id="@+id/btnAramaYap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#617afe"
+                    android:background="#456"
                     android:layout_margin="5dp"
                     android:text="ARAMA YAP"
                     android:textColor="#fff"

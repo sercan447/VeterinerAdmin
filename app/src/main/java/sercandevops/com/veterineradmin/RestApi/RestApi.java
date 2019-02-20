@@ -8,14 +8,18 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import sercandevops.com.veterineradmin.Model.AsiEkle;
 import sercandevops.com.veterineradmin.Model.AsiOnaylaModel;
 import sercandevops.com.veterineradmin.Model.CevaplaModel;
 import sercandevops.com.veterineradmin.Model.KampanyaEkleModel;
 import sercandevops.com.veterineradmin.Model.KampanyaModel;
 import sercandevops.com.veterineradmin.Model.KampanyaSilModel;
+import sercandevops.com.veterineradmin.Model.KullaniciSil;
 import sercandevops.com.veterineradmin.Model.KullanicilarModel;
 import sercandevops.com.veterineradmin.Model.PetAsiTakipModel;
+import sercandevops.com.veterineradmin.Model.PetEkle;
 import sercandevops.com.veterineradmin.Model.PetModel;
+import sercandevops.com.veterineradmin.Model.PetSil;
 import sercandevops.com.veterineradmin.Model.SoruModel;
 
 
@@ -62,4 +66,22 @@ public interface RestApi {
     @POST("/veterinerapp/petlerim.php")
     Call<List<PetModel>> getPets(@Field("mus_id")String musid);
 
+    @FormUrlEncoded
+    @POST("/veterinerapp/petekle.php")
+    Call<PetEkle> petEkle(@Field("musid")String musid,@Field("isim")String isim, @Field("tur")String tur,
+                          @Field("cins")String cins, @Field("resim")String resim);
+
+    @FormUrlEncoded
+    @POST("/veterinerapp/asiekle.php")
+    Call<AsiEkle> asiEkle(@Field("musid")String musid, @Field("petid")String petid, @Field("name")String name,
+                          @Field("tarih")String tarih);
+
+
+    @FormUrlEncoded
+    @POST("/veterinerapp/kullanicisil.php")
+    Call<KullaniciSil> kullaniciSil(@Field("kul_id")String kul_id);
+
+    @FormUrlEncoded
+    @POST("/veterinerapp/petsil.php")
+    Call<PetSil> petSil(@Field("pet_id")String pet_id);
 }

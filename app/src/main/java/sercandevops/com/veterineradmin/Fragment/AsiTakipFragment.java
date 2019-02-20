@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
@@ -39,6 +40,7 @@ public class AsiTakipFragment extends Fragment {
     private DateFormat format;
     private Date date;
     ChangeFragments changeFragments;
+    ImageView imgAsiBack;
 
     private RecyclerView asiTakipRecylcerview;
     private  List<PetAsiTakipModel> list;
@@ -49,7 +51,7 @@ public class AsiTakipFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_asi_takip, container, false);
         tanimlama();
-
+        TiklamaDurumu();
         return view;
 
     }
@@ -59,7 +61,7 @@ public class AsiTakipFragment extends Fragment {
         date = Calendar.getInstance().getTime();
         String today = format.format(date);
 
-
+        imgAsiBack = view.findViewById(R.id.imgAsiBack);
         asiTakipRecylcerview = (RecyclerView)view.findViewById(R.id.recylerview_AsiTakip);
         list = new ArrayList<>();
 
@@ -67,6 +69,15 @@ public class AsiTakipFragment extends Fragment {
         changeFragments = new ChangeFragments(getContext());
         Log.i("bugun",today);
         AsiListele(today);
+    }
+    private void TiklamaDurumu()
+    {
+        imgAsiBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeFragments.changeParameters(new HomeFragment(),"homeAsiTAG");
+            }
+        });
     }
 
     public void AsiListele(String tarih)
@@ -88,7 +99,7 @@ public class AsiTakipFragment extends Fragment {
                     Toast.makeText(getContext(),"Bugun :"+response.body().size()+" pete aşı yapılacaktır.",Toast.LENGTH_SHORT).show();
                 }else
                 {
-                    Toast.makeText(getContext(),"Bugun Yok",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Bugun Yokk",Toast.LENGTH_SHORT).show();
                     changeFragments.change(new HomeFragment());
                 }
             }

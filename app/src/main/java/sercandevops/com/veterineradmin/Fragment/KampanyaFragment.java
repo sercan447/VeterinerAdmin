@@ -39,6 +39,7 @@ import sercandevops.com.veterineradmin.Model.KampanyaModel;
 import sercandevops.com.veterineradmin.Model.KampanyaSilModel;
 import sercandevops.com.veterineradmin.R;
 import sercandevops.com.veterineradmin.RestApi.ManagerAll;
+import sercandevops.com.veterineradmin.Utils.ChangeFragments;
 import sercandevops.com.veterineradmin.Utils.Warnings;
 
 public class KampanyaFragment extends Fragment {
@@ -52,6 +53,9 @@ public class KampanyaFragment extends Fragment {
     private ImageView img_kampanyaResim;
    private Bitmap bitmap = null;
    private String resimKodla = "";
+
+   ImageView imageKampanyaback;
+   ChangeFragments change;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,7 +77,8 @@ public class KampanyaFragment extends Fragment {
             RecyclerView.LayoutManager eng = new GridLayoutManager(getContext(),1);
             recyclerViewKampanya.setLayoutManager(eng);
             kampanyaModels = new ArrayList<>();
-
+            change = new ChangeFragments(getActivity());
+        imageKampanyaback = view.findViewById(R.id.imgKampanyaBack);
 
         }
         public void OpenKampanyaEklAlertDilaog()
@@ -82,6 +87,13 @@ public class KampanyaFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     openKampanyaAlert();
+                }
+            });
+
+            imageKampanyaback.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    change.changeParameters(new HomeFragment(),"homrtag");
                 }
             });
         }
